@@ -8,7 +8,7 @@
    - [Python Scripts](#python-scripts)
    - [Program Steps or Program Flow](#program-steps-or-program-flow)
  - [Variables, Expressions, and Statements](#variables-expressions-and-statements)
-
+ - [Conditional Execution](#conditional-execution)
 ---
 
 >## Getting Started
@@ -335,6 +335,185 @@ Python reads a line by analysing **Variables, Operator, Constant and Reserved Wo
     # All done
     print(bigword, bigcount
     ```
+## Conditional Execution
+
+-[TOC](#table-of-content)
+
+We use the **if statement** here. The **if statement** makes the Python to go one way or the other way. Let the code to check something and make decision based on it.
+
+**If statement** has a question in it and the **:** is the end of the statement.
+
+Problem:
+```Python
+x = 5
+if x < 10:
+    print('Smaller')
+if x > 20:
+    print('Bigger')
+
+print('Finis')
+```
+Output:
+```Python
+Smaller
+Finis
+```
+Logic:
+
+![ConditionalSteps](images/ConditionalSteps.png)
+
+### Comparison Operators
+
+- Boolean expressions ask a question and produce a Yes or No result which we use to control program flow
+- Boolean expressions using comparison operators evaluate to True / False or Yes / No
+- Comparison operators look at variables but do not change the variables
+
+    ![ComparisonOperators](images/ComparisonOperators.png)
+
+```Python
+x = 5
+if x == 5 : 
+    print('Equals 5')
+
+Equals 5
+
+if x > 4 : 
+   print('Greater than 4')
+
+Greater than 4
+
+if  x >= 5 :
+    print('Greater than or Equals 5')
+
+Greater than or Equals 5
+
+if x < 6 : print('Less than 6') 
+
+Less than 6
+
+if x <= 5 :
+    print('Less than or Equals 5')
+
+Less than or Equals 5
+
+if x != 6 :
+    print('Not equal 6')
+
+Not equal 6
+```
+
+### Indentation
+
+- **Increase indent** indent after an **if** statement or **for** statement (after : )
+- **Maintain indent** to indicate the **scope** of the block (which lines are affected by the **if/for**)
+- **Reduce indent** back to the level of the **if** statement or **for** statement to indicate the end of the block
+- **Blank lines** are ignored - they do not affect **indentation**
+- **Comments** on a line by themselves are ignored with regard to **indentation**
+
+### Nested Decisions
+
+```Python
+x = 42
+if x > 1 :
+    print('More than one')
+    if x < 100 : 
+        print('Less than 100') 
+print('All done')
+```
+
+![NestedDecisions](images/NestedDecisions.png)
+
+### Two-way Decisions
+
+- Sometimes we want to do one thing if a logical expression is true and something else if the expression is false
+- We must choose one or the other path but not both
+
+![TwoWayDecicions](images/TwoWayDecicions.png)
+
+```Python
+x = 4
+
+if x > 2 :
+    print('Bigger')
+else :
+    print('Smaller')
+
+print('All done'
+```
+
+### Multi Way
+
+It skips the code if it is False and goes on until it becomes True. It checks the question in the order we wrote it.
+
+```Python
+if x < 2 :
+    print('small')
+elif x < 10 :
+    print('Medium')
+else :
+    print('LARGE')
+print('All done')
+```
+![MultiWay1](images/MultiWay1.png)
+
+```Python
+x = 0 
+if x < 2 :
+    print('small')
+elif x < 10 :
+    print('Medium')
+else :
+    print('LARGE')
+print('All done')
+```
+![MultiWay2](images/MultiWay2.png)
+
+### The try / except Structure
+
+- If the code in the **try** works - the **except** is skipped
+- If the code in the **try** fails - it jumps to the **except** section
+
+Program:
+```Python
+astr = 'Hello Bob'
+try:
+    istr = int(astr)
+except:
+    istr = -1
+
+print('First', istr)
+
+astr = '123'
+try:
+    istr = int(astr)
+except:
+    istr = -1
+
+print('Second', istr)
+```
+When the first conversion fails - it just drops into the except: clause and the program continues.
+
+When the second conversion succeeds - it just skips the except: clause and the program continues.
+
+Results:
+```Python
+First -1
+Second 123
+```
+If you put more than one line inside the **Try** part and if one of the lines blows up, it wont come back to the **Try Block**.
+
+```Python
+astr = 'Bob'
+try:
+    print('Hello') 
+    istr = int(astr)
+    print('There') 
+except:
+    istr = -1
+
+print('Done', istr
+```
+![TryExcept](images/TryExcept.png)
 
 
 ---
