@@ -9,6 +9,7 @@
    - [Program Steps or Program Flow](#program-steps-or-program-flow)
  - [Variables, Expressions, and Statements](#variables-expressions-and-statements)
  - [Conditional Execution](#conditional-execution)
+ - [Functions](#functions)
 ---
 
 >## Getting Started
@@ -335,6 +336,7 @@ Python reads a line by analysing **Variables, Operator, Constant and Reserved Wo
     # All done
     print(bigword, bigcount
     ```
+---    
 ## Conditional Execution
 
 -[TOC](#table-of-content)
@@ -515,6 +517,223 @@ print('Done', istr
 ```
 ![TryExcept](images/TryExcept.png)
 
+---
+## Functions
+
+-[TOC](#table-of-content)
+
+Functions are the **reusable** pieces of code.
+
+### Python Functions
+
+- There are two kinds of functions in Python.
+  -  **Built-in functions** that are provided as part of Python - print(), input(), type(), float(), int() ...
+  -  **Functions that we define ourselves** and then use
+- We treat function names as “new” reserved words (i.e., we avoid them as variable names)
+
+### Function Definition
+
+- In Python a **function** is some reusable code that takes **arguments(s)** as input, does some computation, and then returns a result or results
+- We define a **function** using the def reserved word
+- We call/invoke the **function** by using the function name, parentheses, and **arguments** in an expression 
+
+### Type Conversions
+
+- When you put an integer and floating point in an expression, the integer is implicitly converted to a float
+- You can control this with the built-in functions int() and float()
+
+```Python
+>>> print(float(99) / 100)
+0.99
+
+>>> i = 42
+>>> type(i)
+<class 'int'>
+>>> f = float(i)
+>>> print(f)
+42.0
+
+>>> type(f)
+<class 'float'>
+>>> print(1 + 2 * float(3) / 4 – 5)
+-2.5
+
+>>> 
+```
+### String Conversions
+
+- You can also use int() and float() to convert between strings and integers
+- You will get an error if the string does not contain numeric characters
+
+```Python
+>>> sval = '123'
+>>> type(sval)
+<class 'str'>
+>>> print(sval + 1)
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot concatenate 'str' and 'int'
+
+>>> ival = int(sval)
+>>> type(ival)
+<class 'int'>
+>>> print(ival + 1)
+124
+
+>>> nsv = 'hello bob'
+>>> niv = int(nsv)
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() 
+```
+### Building our Own Functions
+
+- Create a new function using the def keyword followed by optional parameters in parentheses
+- Indent the body of the function
+- This defines the function but does not execute the body of the function
+
+```Python
+x = 5
+print('Hello')
+
+def print_lyrics():
+    print("I'm a lumberjack, and I'm okay.")
+    print('I sleep all night and I work all day.')
+
+print('Yo')
+x = x + 2
+print(x)
+```
+```Python
+Hello
+Yo
+7
+```
+### Definitions and Uses
+
+- Once we have defined a function, we can call (or invoke) it as many times as we like
+- This is the store and reuse pattern
+
+```Python
+x = 5
+print('Hello')
+
+def print_lyrics(): 
+   print("I'm a lumberjack, and I'm okay.")
+   print('I sleep all night and I work all day.')
+
+print('Yo')
+print_lyrics()
+x = x + 2
+print(x)
+
+```
+```Python
+Hello
+Yo
+I'm a lumberjack, and I'm okay.
+I sleep all night and I work all day.
+7
+```
+
+### Arguments
+
+- An `argument` is a value we pass into the `function` as its input when we call the `function`
+- We use `arguments` so we can direct the `function` to do different kinds of work when we call it at different times
+- We put the ```arguments` in parentheses after the name of the `function`  
+
+```Python
+big = max('Hello world')
+```
+
+### Parameters
+
+A **parameter** is a variable which we use in the `function` definition.  It is a “handle” that allows the code in the `function` to access the `arguments` for a particular `function` invocation.
+
+```Python
+>>> def greet(lang):
+        if lang == 'es':
+           print('Hola')
+        elif lang == 'fr':
+           print('Bonjour')
+        else:
+           print('Hello')
+    
+>>> greet('en')
+Hello
+>>> greet('es')
+Hola
+>>> greet('fr')
+Bonjour
+>>> 
+```
+
+### Return Values
+
+Often a `function` will take its `arguments`, do some computation, and ***return*** a value to be used as the value of the `function` call in the calling expression.  The `return` keyword is used for this.
+
+```Python
+def greet():
+    return "Hello"
+
+print(greet(), "Glenn")
+print(greet(), "Sally")
+```
+```Python
+Hello Glenn
+Hello Sally
+```
+- A “fruitful” `function` is one that produces a `result` (or `return value`)
+The return statement ends the function execution and “sends back” the result of the function
+
+```Python
+>>> def greet(lang):
+        if lang == 'es':
+            return 'Hola'
+        elif lang == 'fr':
+            return 'Bonjour'
+        else:
+            return 'Hello'
+   
+>>> print(greet('en'),'Glenn')
+Hello Glenn
+>>> print(greet('es'),'Sally')
+Hola Sally
+>>> print(greet('fr'),'Michael')
+Bonjour Michael
+>>> 
+```
+
+### Multiple Parameters / Arguments
+
+- We can define more than one `parameter` in the `function` definition
+- We simply add more `arguments` when we call the `function`
+- We match the number and order of `arguments` and `parameters`
+
+```Python
+def addtwo(a, b):
+    added = a + b
+    return added
+
+x = addtwo(3, 5)
+print(x)
+
+8
+```
+### Void (non-fruitful) Functions
+
+- When a function does not return a value, we call it a “void” function
+- Functions that return values are “fruitful” functions
+- **Void** functions are “not fruitful”
+
+### To function or not to function...
+
+- Organize your code into “paragraphs” - capture a complete thought and “name it”
+- Don’t repeat yourself - make it work once and then reuse it
+- If something gets too long or complex, break it up into logical chunks and put those chunks in functions
+- Make a library of common stuff that you do over and over
 
 ---
 # ***KEEP LEARNING***
