@@ -41,7 +41,7 @@ Download **Python** from the official **Python** web site: https://python.org
 >## Table Of Content
 
 - [Getting Started](Getting-Started.md)
-
+  ---
     - Getting Started
       - Reserved Words
       - Sentences or Lines
@@ -50,7 +50,14 @@ Download **Python** from the official **Python** web site: https://python.org
     - Variables, Expressions, and Statements
     - Conditional Execution
     - Functions
-  
+
+- [Loops to Dictionaries](Loops-to-Dictionaries.md)
+  ---
+    - Loops and Iterations
+    - Strings
+    - Files
+    - Lists
+    - Dictionaries
 ---
 
 Download **Python** from the official **Python** web site: https://python.org
