@@ -58,6 +58,9 @@ Download **Python** from the official **Python** web site: https://python.org
     - Files
     - Lists
     - Dictionaries
+
+- [Tuples](Tuples.md)
+  ---
 ---
 
 Download **Python** from the official **Python** web site: https://python.org
